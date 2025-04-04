@@ -1,0 +1,19 @@
+@import 'variables';
+@import 'mixins';
+
+body {
+  font-family: $font-stack;
+  background-color: #f4f4f4;
+  text-align: center;
+  padding: 40px;
+}
+
+button {
+  @include button-style;
+  background-color: $primary-color;
+  color: white;
+  
+  &:hover {
+    background-color: $secondary-color;
+  }
+}
