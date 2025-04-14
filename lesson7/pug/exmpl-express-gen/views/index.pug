@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1= title
+  p Введіть своє ім’я:
+  form(action="/submit", method="POST")
+    input(type="text", name="name", placeholder="Ваше ім’я", required)
+    button(type="submit") Надіслати

@@ -1,0 +1,23 @@
+{% extends "layout.njk" %}
+{% import "macros/form.njk" as form %}
+
+{% block title %}Головна{% endblock %}
+
+{% block content %}
+  <h1>Форма</h1>
+  <form action="/submit" method="POST">
+    {{ form.input('name', 'Ваше ім’я') }}
+    <button type="submit">Надіслати</button>
+  </form>
+
+  <h2>Користувачі (реверс):</h2>
+  {% if users.length %}
+    <ul>
+      {% for user in users %}
+        <li>{{ user.name | reverse }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Користувачів ще немає.</p>
+  {% endif %}
+{% endblock %}

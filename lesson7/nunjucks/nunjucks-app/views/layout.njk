@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <nav>
+    <a href="/">Головна</a> |
+    <a href="/users">Користувачі</a>
+  </nav>
+  <hr>
+  {% block content %}{% endblock %}
+</body>
+</html>

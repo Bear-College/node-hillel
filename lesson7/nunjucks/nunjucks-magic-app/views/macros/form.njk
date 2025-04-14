@@ -1,0 +1,4 @@
+{% macro input(name, label='', type='text') %}
+  <label>{{ label }}</label>
+  <input type="{{ type }}" name="{{ name }}" placeholder="{{ label }}"><br><br>
+{% endmacro %}

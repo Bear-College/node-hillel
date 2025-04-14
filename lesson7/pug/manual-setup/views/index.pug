@@ -1,0 +1,9 @@
+extends layouts/main
+
+block content
+  h1= message
+  p Це головна сторінка.
+  form(action="/submit", method="POST")
+    label(for="name") Введіть ім’я:
+    input(type="text", name="name", required)
+    button(type="submit") Надіслати

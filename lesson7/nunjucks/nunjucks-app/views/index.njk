@@ -1,0 +1,10 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<p>Введіть своє ім’я:</p>
+<form action="/submit" method="POST">
+  <input type="text" name="name" placeholder="Ваше ім’я" required>
+  <button type="submit">Надіслати</button>
+</form>
+{% endblock %}

@@ -1,0 +1,13 @@
+extends layouts/main
+
+block content
+  h1 Список користувачів
+
+  if error
+    p(style="color:red") #{error}
+  else if users.length
+    ul
+      each user in users
+        li= user.name
+  else
+    p Користувачів поки немає.

@@ -1,0 +1,17 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+{% if error %}
+  <p style="color:red">{{ error }}</p>
+{% elif users.length %}
+  <ul>
+    {% for user in users %}
+      <li>{{ user.name }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Користувачів поки немає.</p>
+{% endif %}
+{% endblock %}
