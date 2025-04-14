@@ -1,0 +1,47 @@
+version: "3.9"
+
+services:
+  backend-a:
+    build: ./backend-a
+    container_name: backend-a
+    ports:
+      - "4001:4001"
+    volumes:
+      - backend-a-data:/app-data
+      - /app/node_modules
+    networks:
+      - backend-net
+    restart: unless-stopped
+    depends_on:
+      backend-b:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4001"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  backend-b:
+    build: ./backend-b
+    container_name: backend-b
+    ports:
+      - "4002:4002"
+    volumes:
+      - backend-b-data:/app-data
+      - /app/node_modules
+    networks:
+      - backend-net
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4002"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  backend-a-data:
+  backend-b-data:
+
+networks:
+  backend-net:
+    driver: bridge
