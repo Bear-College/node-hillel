@@ -1,0 +1,19 @@
+{
+  "name": "load-balancer-benchmark",
+  "version": "1.0.0",
+  "main": "factorial.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "autocannon": "^8.0.0",
+    "http-proxy": "^1.18.1"
+  }
+}
