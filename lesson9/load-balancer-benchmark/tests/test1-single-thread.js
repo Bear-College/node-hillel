@@ -5,6 +5,9 @@ http.createServer((req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
   const n = parseInt(url.searchParams.get('number'), 10);
 
+  // console.log('url ', url)
+  // http://localhost:3000/?number=5
+
   if (!isNaN(n)) {
     const result = factorial(n);
     res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -16,3 +19,8 @@ http.createServer((req, res) => {
 }).listen(3000, () => {
   console.log('Single-thread server running on http://localhost:3000');
 });
+
+// cluster - ядра
+// worker threads - потоки
+
+// ядра всередині потоки
