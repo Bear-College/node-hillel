@@ -16,6 +16,10 @@ app.get('/movie', (req, res) => {
   const fileSize = stat.size;
   const range = req.headers.range;
 
+  console.log('------------')
+  console.log('range ', range)
+  console.log('------------')
+
   if (range) {
     // Parse range header
     const parts = range.replace(/bytes=/, "").split("-");
