@@ -1,10 +1,10 @@
 const mysql = require('mysql2/promise');
 
 const pool = mysql.createPool({
-  host: 'localhost',
+  host: 'localhost', //127.0.0.1
   user: 'root',
-  password: 'your_password', // replace with your real password
-  database: 'testdb',         // make sure this DB exists
+  password: '', // replace with your real password
+  database: 'new_schema5',         // make sure this DB exists
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0

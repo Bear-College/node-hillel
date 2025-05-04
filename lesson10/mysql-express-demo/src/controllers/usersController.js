@@ -1,12 +1,12 @@
 const db = require('../db/connection');
 
 exports.createUser = async (req, res) => {
-  const { name, age, city } = req.body;
+  const { name, age, city, email } = req.body;
   const [result] = await db.execute(
-    'INSERT INTO users (name, age, city) VALUES (?, ?, ?)',
-    [name, age, city]
+    'INSERT INTO users (name, age, city, email) VALUES (?, ?, ?, ?)',
+    [name, age, city, email]
   );
-  res.status(201).json({ id: result.insertId, name, age, city });
+  res.status(201).json({ id: result.insertId, name, age, city, email });
 };
 
 exports.getUsers = async (req, res) => {
@@ -30,11 +30,11 @@ exports.getUsers = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
   const { id } = req.params;
-  const { name, age, city } = req.body;
+  const { name, age, city, email } = req.body;
 
   await db.execute(
-    'UPDATE users SET name = ?, age = ?, city = ? WHERE id = ?',
-    [name, age, city, id]
+    'UPDATE users SET name = ?, age = ?, city = ?, email = ? WHERE id = ?',
+    [name, age, city, email, id]
   );
 
   res.json({ message: 'User updated' });
